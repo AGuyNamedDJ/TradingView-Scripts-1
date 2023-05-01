@@ -1,4 +1,4 @@
-// Retail Trading Strategies
+// Retail Trading Strategies (Open Source)
 
 // Name: Simple Moving Average Crossover (SMAC)
 // Description: This strategy uses a short-term and a long-term simple moving average (SMA) to generate buy and sell signals based on their crossovers. It's a trend-following strategy that aims to capture profitable trends in the market.
