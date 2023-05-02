@@ -25,3 +25,30 @@
     // Plot buy and sell arrows
     plotshape(buySignal, title="Buy Signal", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
     plotshape(sellSignal, title="Sell Signal", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
+
+
+// Name: RSI Divergence Strategy
+    // Description: This RSI Divergence Strategy detects and plots bullish and bearish divergences between price and RSI, signaling potential trend reversals. Adjustable parameters allow optimization for various instruments and timeframes.
+
+    //@version=4
+    study("RSI Divergence Strategy", shorttitle="RDS", overlay=true)
+
+    // Input parameters
+    rsiPeriod = input(14, title="RSI Period", minval=1)
+    divergenceThreshold = input(5, title="Divergence Threshold", type=input.integer)
+
+    // Calculate RSI
+    rsi = rsi(close, rsiPeriod)
+
+    // Find divergences
+    bullish_div = (rsi[divergenceThreshold] < rsi[0]) and (close[divergenceThreshold] > close[0])
+    bearish_div = (rsi[divergenceThreshold] > rsi[0]) and (close[divergenceThreshold] < close[0])
+
+    // Plot RSI on a separate panel
+    plot(rsi, title="RSI", color=color.blue, linewidth=2)
+    hline(30, "Oversold", color=color.red)
+    hline(70, "Overbought", color=color.green)
+
+    // Plot bullish and bearish divergence signals
+    plotshape(bullish_div, title="Bullish Divergence", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
+    plotshape(bearish_div, title="Bearish Divergence", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
