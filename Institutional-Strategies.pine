@@ -1,7 +1,7 @@
 // Institutional Trading Strategies (Open Source)
 
 // Name: VWAP Cross Strategy
-    // Short Description: This script implements the VWAP Cross Strategy, which generates buy and sell signals when the price crosses the Volume Weighted Average Price (VWAP) line. This institutional approach is particularly relevant for intraday trading.
+    // Description: This script implements the VWAP Cross Strategy, which generates buy and sell signals when the price crosses the Volume Weighted Average Price (VWAP) line. This institutional approach is particularly relevant for intraday trading.
     //@version=4
     study("VWAP Cross Strategy", shorttitle="VCS", overlay=true)
 
