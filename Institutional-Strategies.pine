@@ -1,1 +1,22 @@
 // Institutional Trading Strategies (Open Source)
+
+// Name: VWAP Cross Strategy
+    // Short Description: This script implements the VWAP Cross Strategy, which generates buy and sell signals when the price crosses the Volume Weighted Average Price (VWAP) line. This institutional approach is particularly relevant for intraday trading.
+    //@version=4
+    study("VWAP Cross Strategy", shorttitle="VCS", overlay=true)
+
+    // Calculate VWAP
+    vwap_sum = cum(close * volume)
+    volume_sum = cum(volume)
+    vwap = vwap_sum / volume_sum
+
+    // Generate buy and sell signals
+    buySignal = crossover(close, vwap)
+    sellSignal = crossunder(close, vwap)
+
+    // Plot VWAP on the chart
+    plot(vwap, title="VWAP", color=color.orange, linewidth=2)
+
+    // Plot buy and sell arrows
+    plotshape(buySignal, title="Buy Signal", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
+    plotshape(sellSignal, title="Sell Signal", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
