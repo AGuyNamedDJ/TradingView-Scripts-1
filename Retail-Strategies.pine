@@ -13,6 +13,20 @@
         line.new(x1=bar_index[1], y1=prevHigh, x2=bar_index, y2=prevHigh, color=color.green, width = 1)
         line.new(x1=bar_index[1], y1=prevLow, x2=bar_index, y2=prevLow, color=color.red, width = 1)
 
+    // Name: Intraday High & Low Strategy
+        // Description: This script identifies and plots the intraday high and low prices as potential areas of supply and demand. The green and red lines representing these levels adjust in real-time as new highs and lows are reached during the trading day.
+        //@version=4
+        study("Intraday High and Low Strategy", shorttitle="IHLS", overlay=true)
+
+        // Calculate intraday high and low
+        intradayHigh = highest(high, bar_index % session.period)
+        intradayLow = lowest(low, bar_index % session.period)
+
+        // Plot intraday high and low
+        line.new(x1=bar_index[1], y1=intradayHigh, x2=bar_index, y2=intradayHigh, color=color.green, width = 1)
+        line.new(x1=bar_index[1], y1=intradayLow, x2=bar_index, y2=intradayLow, color=color.red, width = 1)
+
+
 
     // Name: RSI Divergence Strategy
         // Description: This RSI Divergence Strategy detects and plots bullish and bearish divergences between price and RSI, signaling potential trend reversals. Adjustable parameters allow optimization for various instruments and timeframes.
