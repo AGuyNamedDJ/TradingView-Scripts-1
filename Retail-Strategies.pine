@@ -1,53 +1,66 @@
 // Retail Trading Strategies (Open Source)
 
+    // Name: Daily High Low Strategy
+        // Description: This script plots the previous day's highest and lowest price levels on a chart, creating potential supply and demand zones. It's a simplistic approach to identifying potential order blocks in the market based on historical price data.
+        //@version=4
+        study("Daily High and Low Strategy", shorttitle="DHLS", overlay=true)
 
-// Name: RSI Divergence Strategy
-    // Description: This RSI Divergence Strategy detects and plots bullish and bearish divergences between price and RSI, signaling potential trend reversals. Adjustable parameters allow optimization for various instruments and timeframes.
-    //@version=4
-    study("RSI Divergence Strategy", shorttitle="RDS", overlay=true)
+        // Calculate previous day's high and low
+        prevHigh = security(syminfo.tickerid, "D", high[1])
+        prevLow = security(syminfo.tickerid, "D", low[1])
 
-    // Input parameters
-    rsiPeriod = input(14, title="RSI Period", minval=1)
-    divergenceThreshold = input(5, title="Divergence Threshold", type=input.integer)
-
-    // Calculate RSI
-    rsi = rsi(close, rsiPeriod)
-
-    // Find divergences
-    bullish_div = (rsi[divergenceThreshold] < rsi[0]) and (close[divergenceThreshold] > close[0])
-    bearish_div = (rsi[divergenceThreshold] > rsi[0]) and (close[divergenceThreshold] < close[0])
-
-    // Plot RSI on a separate panel
-    plot(rsi, title="RSI", color=color.blue, linewidth=2)
-    hline(30, "Oversold", color=color.red)
-    hline(70, "Overbought", color=color.green)
-
-    // Plot bullish and bearish divergence signals
-    plotshape(bullish_div, title="Bullish Divergence", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
-    plotshape(bearish_div, title="Bearish Divergence", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
+        // Plot previous day's high and low
+        line.new(x1=bar_index[1], y1=prevHigh, x2=bar_index, y2=prevHigh, color=color.green, width = 1)
+        line.new(x1=bar_index[1], y1=prevLow, x2=bar_index, y2=prevLow, color=color.red, width = 1)
 
 
-// Name: Simple Moving Average Crossover (SMAC)
-    // Description: This strategy uses a short-term and a long-term simple moving average (SMA) to generate buy and sell signals based on their crossovers. It's a trend-following strategy that aims to capture profitable trends in the market.
-    //@version=4
-    study("Moving Average Crossover Strategy", shorttitle="MACS", overlay=true)
+    // Name: RSI Divergence Strategy
+        // Description: This RSI Divergence Strategy detects and plots bullish and bearish divergences between price and RSI, signaling potential trend reversals. Adjustable parameters allow optimization for various instruments and timeframes.
+        //@version=4
+        study("RSI Divergence Strategy", shorttitle="RDS", overlay=true)
 
-    // Input parameters for moving averages
-    shortMA = input(9, title="Short Moving Average Length", minval=1)
-    longMA = input(21, title="Long Moving Average Length", minval=1)
+        // Input parameters
+        rsiPeriod = input(14, title="RSI Period", minval=1)
+        divergenceThreshold = input(5, title="Divergence Threshold", type=input.integer)
 
-    // Calculate moving averages
-    shortAvg = sma(close, shortMA)
-    longAvg = sma(close, longMA)
+        // Calculate RSI
+        rsi = rsi(close, rsiPeriod)
 
-    // Generate buy and sell signals
-    buySignal = crossover(shortAvg, longAvg)
-    sellSignal = crossunder(shortAvg, longAvg)
+        // Find divergences
+        bullish_div = (rsi[divergenceThreshold] < rsi[0]) and (close[divergenceThreshold] > close[0])
+        bearish_div = (rsi[divergenceThreshold] > rsi[0]) and (close[divergenceThreshold] < close[0])
 
-    // Plot moving averages on the chart
-    plot(shortAvg, title="Short Moving Average", color=color.blue, linewidth=2)
-    plot(longAvg, title="Long Moving Average", color=color.red, linewidth=2)
+        // Plot RSI on a separate panel
+        plot(rsi, title="RSI", color=color.blue, linewidth=2)
+        hline(30, "Oversold", color=color.red)
+        hline(70, "Overbought", color=color.green)
 
-    // Plot buy and sell arrows
-    plotshape(buySignal, title="Buy Signal", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
-    plotshape(sellSignal, title="Sell Signal", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
+        // Plot bullish and bearish divergence signals
+        plotshape(bullish_div, title="Bullish Divergence", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
+        plotshape(bearish_div, title="Bearish Divergence", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
+
+
+    // Name: Simple Moving Average Crossover (SMAC)
+        // Description: This strategy uses a short-term and a long-term simple moving average (SMA) to generate buy and sell signals based on their crossovers. It's a trend-following strategy that aims to capture profitable trends in the market.
+        //@version=4
+        study("Moving Average Crossover Strategy", shorttitle="MACS", overlay=true)
+
+        // Input parameters for moving averages
+        shortMA = input(9, title="Short Moving Average Length", minval=1)
+        longMA = input(21, title="Long Moving Average Length", minval=1)
+
+        // Calculate moving averages
+        shortAvg = sma(close, shortMA)
+        longAvg = sma(close, longMA)
+
+        // Generate buy and sell signals
+        buySignal = crossover(shortAvg, longAvg)
+        sellSignal = crossunder(shortAvg, longAvg)
+
+        // Plot moving averages on the chart
+        plot(shortAvg, title="Short Moving Average", color=color.blue, linewidth=2)
+        plot(longAvg, title="Long Moving Average", color=color.red, linewidth=2)
+
+        // Plot buy and sell arrows
+        plotshape(buySignal, title="Buy Signal", location=location.belowbar, color=color.green, style=shape.triangleup, size=size.small)
+        plotshape(sellSignal, title="Sell Signal", location=location.abovebar, color=color.red, style=shape.triangledown, size=size.small)
