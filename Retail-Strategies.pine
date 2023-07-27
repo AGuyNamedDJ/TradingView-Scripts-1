@@ -27,7 +27,6 @@
         line.new(x1=bar_index[1], y1=intradayLow, x2=bar_index, y2=intradayLow, color=color.red, width = 1)
 
 
-
     // Name: RSI Divergence Strategy
         // Description: This RSI Divergence Strategy detects and plots bullish and bearish divergences between price and RSI, signaling potential trend reversals. Adjustable parameters allow optimization for various instruments and timeframes.
         //@version=4
