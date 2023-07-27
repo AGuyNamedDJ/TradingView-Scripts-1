@@ -43,7 +43,29 @@ You can customize the input parameters, appearance, and other settings of each s
 
 ### Institutional Strategies <a name="institutional"></a>
 
+    1. High Volume Bars Strategy
+        - Description: The High Volume Bars Strategy is an institutional trading approach designed to identify and leverage potential indicators of institutional activity. By focusing on volume as the primary indicator, this strategy identifies bars with high trading volumes that close either upwards or downwards, indicative of bullish or bearish activity, respectively. Buy signals are generated when a high-volume bar closes higher, and sell signals are generated when it closes lower, providing users with an easy-to-understand interface. The script overlays on the price chart and includes input parameters for customization.
+
+    2. VWAP Cross Strategy
+        - Description: The VWAP Cross Strategy is an institutional trading technique that centers on the relationship between the price and the Volume Weighted Average Price (VWAP) line. The strategy signals a buy when the price crosses the VWAP line from below, and conversely, it indicates a sell when the price crosses from above, which is particularly relevant for intraday traders. The script overlays the VWAP line directly on the price chart, offering customization options for color and line width.
+
 ### Retail Strategies <a name="retail"></a>
+
+    1. Daily High Low Strategy
+
+        - Description: The Daily High Low Strategy is a retail trading approach that offers visual guidance for potential supply and demand zones in the market. By marking the highest and lowest price levels from the previous day on the chart, traders can identify possible order blocks based on historical price data. This straightforward approach helps traders anticipate potential reversals or breakouts.
+
+    2. Intraday High & Low Strategy
+
+        - Description: The Intraday High & Low Strategy aids traders in identifying and plotting the highest and lowest prices during a trading day as potential areas of supply and demand. Green and red lines represent these levels on the chart, adjusting in real-time as the trading day unfolds and new highs or lows are reached. This strategy gives traders an ongoing perspective on intraday price action and potential pivot points.
+
+    3. RSI Divergence Strategy
+
+        - Description: The RSI Divergence Strategy is a unique approach that detects and plots divergences between price and the Relative Strength Index (RSI), signaling potential trend reversals. It identifies when the price and RSI are out of sync – a key indication of a possible shift in market sentiment. The strategy offers adjustable parameters, allowing optimization for various instruments and timeframes, making it versatile across different trading scenarios.
+
+    4. Simple Moving Average Crossover (SMAC)
+
+        - Description: The Simple Moving Average Crossover (SMAC) is a strategy that leverages the relationship between a short-term and a long-term simple moving average (SMA) to generate trading signals. The strategy signals a buy when the short-term SMA crosses above the long-term SMA, and it signals a sell when the short-term SMA crosses below the long-term SMA. This trend-following approach is designed to capture significant market moves and to aid in filtering out market noise.
 
 ---
 
@@ -54,6 +76,10 @@ Trading financial instruments carries inherent risks, and past performance is no
 ---
 
 ## Credits <a name="credits"></a>
+
+Special thanks to the open-source community for providing the inspiration and resources that contributed to the creation of these scripts. The continuous exchange of knowledge and support is invaluable and greatly appreciated.
+
+Additionally, the process of learning and implementing Pine Script for TradingView has been an enriching experience. Thank you to TradingView for the comprehensive documentation and user-friendly interface that made this project possible.
 
 ---
 
