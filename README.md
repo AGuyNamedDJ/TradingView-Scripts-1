@@ -7,15 +7,14 @@ This repository contains a collection of custom trading strategies and indicator
 ## Table of Contents <a name="table-of-contents"></a>
 
 1. [Description](#description)
-2. [Installation](#installation)
+2. [Features](#features)
 3. [Usage](#usage)
 4. [File & Directory Structure](#file-directory-structure)
-   - [public/](#public)
-   - [src/](#src)
-5. [APIs & Libraries Used](#api)
-6. [Testing](#testing)
-7. [Credits](#credits)
-8. [Contact Information](#contact-information)
+   - [Institutional Strategies/](#institutional)
+   - [Retail Strategies/](#retail)
+5. [Disclaimer](#disclaimer)
+6. [Credits](#credits)
+7. [Contact Information](#contact-information)
 
 ---
 
@@ -28,7 +27,7 @@ This repository contains a collection of custom trading strategies and indicator
 
 ---
 
-## How to Use <a name="how-to-use"></a>
+## Usage <a name="usage"></a>
 
 1. Browse the repository and select the strategy or indicator you want to use.
 2. Open the corresponding Pine Script file and copy the code.
@@ -37,6 +36,14 @@ This repository contains a collection of custom trading strategies and indicator
 5. Paste the copied code into the Pine Editor and click on the "Add to Chart" button.
 
 You can customize the input parameters, appearance, and other settings of each script in the Pine Editor to better suit your trading style and preferences.
+
+---
+
+## File & Directory Structure <a name="file-directory-structure"></a>
+
+### Institutional Strategies <a name="institutional"></a>
+
+### Retail Strategies <a name="retail"></a>
 
 ---
 
